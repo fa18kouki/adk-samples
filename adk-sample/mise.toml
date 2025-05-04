@@ -1,0 +1,7 @@
+[tools]
+python = "3.12.5"
+uv = "latest"
+
+# 以下追加
+[settings]
+python.uv_venv_auto = true 

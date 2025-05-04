@@ -1,0 +1,19 @@
+[project]
+name = "adk-sample"
+version = "0.1.0"
+description = "ADK sample application for BigQuery data analysis"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+requires-python = ">=3.12"
+readme = "README.md"
+
+[tool.uv]
+package-manager = "uv"
+
+[tool.uv.project]
+dependencies = [
+    "google-adk>=0.1.0",
+    "google-cloud-bigquery>=3.31.0",
+    "google-cloud-aiplatform[adk,agent-engines]>=1.88.0",
+] 

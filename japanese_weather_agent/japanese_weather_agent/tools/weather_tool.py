@@ -1,4 +1,4 @@
-from typing import Dict, Optional
+from typing import Dict, Optional, Any
 import requests
 import os
 from dotenv import load_dotenv
@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # 環境変数の読み込み
 load_dotenv()
 
-def get_weather(city: str) -> Dict:
+def get_weather(city: str) -> dict:
     """
     指定された都市の天気情報をOpenWeather APIから取得します。
     
@@ -14,7 +14,7 @@ def get_weather(city: str) -> Dict:
         city: 天気情報を取得したい都市名
         
     Returns:
-        Dict: 天気情報を含む辞書。以下のキーが含まれます:
+        dict: 天気情報を含む辞書。以下のキーが含まれます:
             - status: "success"または"error"
             - report: 天気情報（statusがsuccessの場合）
             - error_message: エラーメッセージ（statusがerrorの場合）
@@ -94,7 +94,7 @@ def get_weather(city: str) -> Dict:
         return {"status": "error", "error_message": f"天気情報の取得中にエラーが発生しました: {str(e)}"}
 
 
-def get_forecast(city: str, days: int = 3) -> Dict:
+def get_forecast(city: str, days: int = 3) -> dict:
     """
     指定された都市の天気予報をOpenWeather APIから取得します。
     
@@ -103,7 +103,7 @@ def get_forecast(city: str, days: int = 3) -> Dict:
         days: 取得したい予報日数（デフォルト: 3日）
         
     Returns:
-        Dict: 天気予報情報を含む辞書
+        dict: 天気予報情報を含む辞書
     """
     print(f"--- ツール実行: 都市「{city}」の{days}日間の天気予報を取得中 ---")
     
@@ -203,7 +203,7 @@ def get_forecast(city: str, days: int = 3) -> Dict:
         return {"status": "error", "error_message": f"天気予報の取得中にエラーが発生しました: {str(e)}"}
 
 
-def get_air_pollution(city: str) -> Dict:
+def get_air_pollution(city: str) -> dict:
     """
     指定された都市の大気汚染情報をOpenWeather APIから取得します。
     
@@ -211,7 +211,7 @@ def get_air_pollution(city: str) -> Dict:
         city: 大気汚染情報を取得したい都市名
         
     Returns:
-        Dict: 大気汚染情報を含む辞書
+        dict: 大気汚染情報を含む辞書
     """
     print(f"--- ツール実行: 都市「{city}」の大気汚染情報を取得中 ---")
     
